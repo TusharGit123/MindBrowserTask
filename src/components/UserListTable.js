@@ -1,11 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
 // import { deleteUser } from "../redux/actions/userAction";
-// import { useDispatch } from "react-redux";
 
 const UserListTable = ({ searchname }) => {
   // const dispatch = useDispatch();
   const Users = useSelector((state) => state.allUsers.Users);
+
+  const onDeleteUser = (index) => {
+    let allUserData = Users;
+    let newDataArr = [];
+    allUserData.splice(index, 1);
+    console.log(allUserData);
+    newDataArr.push(allUserData);
+    console.log(newDataArr);
+  };
+
   return (
     <>
       <table className="table">
@@ -33,9 +42,9 @@ const UserListTable = ({ searchname }) => {
             ) {
               return val;
             }
-          }).map((user, key) => (
-            <tr key={key}>
-              <th scope="row">{user.id}</th>
+          }).map((user, index) => (
+            <tr key={index}>
+              <th scope="row">{index}</th>
               <td>{user.name}</td>
               <td>{user.birthdate}</td>
               <td>{user.email}</td>
@@ -45,11 +54,16 @@ const UserListTable = ({ searchname }) => {
               <td>{user.college}</td>
               <td>{user.hobbies}</td>
               <td>
-                <i className="fa fa-pencil mr-3" aria-hidden="true"></i>
+                <i
+                  className="fa fa-pencil mr-3"
+                  aria-hidden="true"
+                  // onClick={() => onEditUser(user, index)}
+                ></i>
                 <i
                   className="fa fa-trash"
                   aria-hidden="true"
-                  // onClick={() => dispatch(deleteUser(id))}
+                  // onClick={() => dispatch(deleteUser(index))}
+                  onClick={() => onDeleteUser(index)}
                 ></i>
               </td>
             </tr>

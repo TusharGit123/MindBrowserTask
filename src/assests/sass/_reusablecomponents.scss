@@ -54,25 +54,35 @@
 /*************************
     Modal Component scss
 **************************/
-
-
 .inner-form{
     position: relative;
-    .user-form{
-        // text-align: center;
+    .user-form{    
         margin-top: 50px;
         .gender-div{
-            display: flex;
-            // justify-content:space-evenly;
-        }
-        // .checkbox-div{
-        //     display: flex;
-        //     // justify-content:space-evenly;
-        // }
+            display: flex;              
+        }     
     }
 }
 .custom-button-close{
     position: absolute;
     top: 0;
     right: 0;
+}
+
+/*************************
+    Search Dropdown scss
+**************************/
+.search-bar-dropdown{
+    width: 22em;
+    .ul-list{
+        height: 20vh;
+        overflow-y: scroll;
+    }
+}
+#result{
+    position: absolute;
+    width: inherit;
+}
+#search-bar{
+    width: inherit;
 }

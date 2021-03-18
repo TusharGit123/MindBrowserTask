@@ -112,6 +112,27 @@
   right: 0;
 }
 
+/*************************
+    Search Dropdown scss
+**************************/
+.search-bar-dropdown {
+  width: 22em;
+}
+
+.search-bar-dropdown .ul-list {
+  height: 20vh;
+  overflow-y: scroll;
+}
+
+#result {
+  position: absolute;
+  width: inherit;
+}
+
+#search-bar {
+  width: inherit;
+}
+
 *,
 *::before,
 *::after {

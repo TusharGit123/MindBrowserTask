@@ -5,37 +5,44 @@ import classnames from "classnames";
 import ButtonComponent from "../components/resubaleComponents/ButtonComponent";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions/userAction";
-
 import axios from "axios";
+// import SearchDropdown from "./resubaleComponents/SearchDropdown";
 
 const AddUserForm = () => {
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
-  const [colleges, setColleges] = useState([]);
+  const [options, setOptions] = useState([]);
   const { register, handleSubmit, errors } = useForm();
 
   /***************************
    * @DESC get College data
    ***************************/
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://universities.hipolabs.com/search?name=${colleges}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [colleges]);
+  useEffect(() => {
+    axios
+      .get(`http://universities.hipolabs.com/search?name=${options}`)
+      .then((res) => {
+        let options = res.data;
+        setOptions(options);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [options]);
+
+  /***************************************
+   * @DESC Search College Input Handler
+   ***************************************/
+  // const onInputChange = (e) => {
+  //   setOptions(
+  //     defaultOptions.filter((option) => option.includes(e.target.value))
+  //   );
+  // };
 
   /***************************
    * @DESC onSubmit Handler
    ***************************/
   const onSubmit = (data) => {
-    // let _id = data.Math.floor(Math.random() * 10);
-    // console.log(_id);
     dispatch(addUser(data));
-    // console.log(data);
   };
 
   /***************************
@@ -191,7 +198,6 @@ const AddUserForm = () => {
   /***************************
    * @DESC Second Column
    ***************************/
-
   const RadioForm = () => {
     return (
       <>
@@ -271,6 +277,9 @@ const AddUserForm = () => {
               {errors.hobbies.message}
             </div>
           )}
+
+          {/* <SearchDropdown onInputChange={onInputChange} options={options} /> */}
+
           <div className="form-group">
             <label htmlFor="college">Choose Your College</label>
             <select
@@ -320,3 +329,10 @@ const AddUserForm = () => {
 };
 
 export default AddUserForm;
+
+const defaultOptions = [];
+for (let i = 0; i < 10; i++) {
+  defaultOptions.push(`option${i}`);
+  defaultOptions.push(`suggestion${i}`);
+  defaultOptions.push(`advice${i}`);
+}

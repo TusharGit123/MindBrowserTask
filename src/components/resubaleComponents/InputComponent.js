@@ -1,22 +1,3 @@
-// import React from "react";
-
-// const InputComponent = () => {
-//   return (
-//     <>
-//       <div>
-//         <input
-//           type="text"
-//           vlaue="value"
-//           placeholder="place"
-//           className="custom-input"
-//         />
-//       </div>
-//     </>
-//   );
-// };
-
-// export default InputComponent;
-
 import React from "react";
 
 const InputComponent = ({

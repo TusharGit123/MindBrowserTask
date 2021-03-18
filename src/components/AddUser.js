@@ -17,49 +17,6 @@ const customStyles = {
 const AddUser = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  // const [userRegistration, setUserRegistration] = useState({
-  //   name: "",
-  //   birthdate: "",
-  //   email: "",
-  //   phone: "",
-  //   address: "",
-  // });
-  // const [records, setRecords] = useState([]);
-
-  /***********************************
-   * @DESC Input onChange Handler
-   ***********************************/
-  // const handleInput = (e) => {
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  //   console.log(name, value);
-
-  //   setUserRegistration({
-  //     ...userRegistration,
-  //     [name]: value,
-  //   });
-  // };
-  /****************************
-   * @DESC onSubmit Handler
-   **************************/
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newRecord = {
-  //     ...userRegistration,
-  //     id: new Date().getTime().toString(),
-  //   };
-  //   console.log(records);
-  //   setRecords([...records, newRecord]);
-  //   console.log(records);
-  //   setUserRegistration({
-  //     name: "",
-  //     birthdate: "",
-  //     email: "",
-  //     phone: "",
-  //     address: "",
-  //   });
-  // };
-
   useEffect(() => {
     Modal.setAppElement("body");
   }, []);
@@ -87,7 +44,6 @@ const AddUser = () => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
-        // className="custom-modal"
       >
         <div className="inner-form">
           <h5>User Information</h5>

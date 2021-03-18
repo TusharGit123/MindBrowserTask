@@ -1,4 +1,4 @@
-import { CREATE_USER, DELETE_USER } from "../type";
+import { CREATE_USER } from "../type";
 
 // action
 export const addUser = (user) => {
@@ -9,7 +9,16 @@ export const addUser = (user) => {
 };
 
 //delete user
-export const deleteUser = (id) => ({
-  type: DELETE_USER,
-  payload: id,
-});
+export const deleteUser = (updateData) => {
+  console.log(updateData);
+  // type: DELETE_USER,
+  // payload: updateData,
+};
+
+// //delete user
+// export const deleteUser = (index) => {
+//   return {
+//     type: DELETE_USER,
+//     payload: index,
+//   };
+// };
