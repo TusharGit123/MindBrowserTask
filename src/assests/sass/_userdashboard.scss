@@ -1,0 +1,19 @@
+/*************************
+    Main Dashboard scss
+**************************/
+.main-dashboard{
+    text-align: center;
+    .userlist-text{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .adduser-searchbox{
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+
